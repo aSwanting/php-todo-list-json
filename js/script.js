@@ -15,7 +15,8 @@ createApp({
       });
     },
     addTask() {
-      // if (!this.newTask) return;
+      if (!this.newTask) return;
+
       console.log(this.newTask);
       const data = { newTask: this.newTask };
       axios
@@ -25,7 +26,7 @@ createApp({
           },
         })
         .then((res) => {
-          this.todolist.push(res.data.results);
+          this.todolist = res.data.results;
         });
       this.newTask = "";
     },
