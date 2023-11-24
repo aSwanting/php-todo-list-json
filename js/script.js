@@ -7,13 +7,13 @@ createApp({
     };
   },
   methods: {
-    data() {
+    fetchData() {
       axios.get("server.php").then((res) => {
-        console.log(res.data);
+        console.log(res.data.results);
       });
     },
   },
   created() {
-    this.data();
+    this.fetchData();
   },
 }).mount("#app");
