@@ -3,13 +3,14 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      message: "Hello PHP!",
+      title: "PHP Todo List",
+      todolist: "",
     };
   },
   methods: {
     fetchData() {
       axios.get("server.php").then((res) => {
-        console.log(res.data.results);
+        this.todolist = res.data.results;
       });
     },
   },
