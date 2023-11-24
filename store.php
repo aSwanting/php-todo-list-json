@@ -5,7 +5,7 @@ $new_task = $_POST["newTask"];
 // Store in Response
 $response = [
     "chicken" => "jurgen",
-    "data" => $new_task
+    "results" => $new_task
 ];
 
 // Send Response as Json

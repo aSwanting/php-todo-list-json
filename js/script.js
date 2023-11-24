@@ -18,11 +18,15 @@ createApp({
       // if (!this.newTask) return;
       console.log(this.newTask);
       const data = { newTask: this.newTask };
-      axios.post("store.php", data, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      axios
+        .post("store.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.todolist.push(res.data.results);
+        });
       this.newTask = "";
     },
   },
