@@ -15,7 +15,7 @@
     <div id="app">
         <main>
 
-            <div class="card w-50 mx-auto my-5 shadow">
+            <div class="card mx-auto my-5 shadow" style="max-width: 500px;">
 
                 <div class="card-header">
                     <h1 class="fs-3 fw-semibold text-uppercase">{{title}}</h1>
@@ -27,6 +27,9 @@
                         <span class="opacity-50"><i class="fa-regular fa-circle-xmark"></i></span>
                     </li>
                 </ul>
+                <div class="card-footer d-flex gap-3">
+                    <input class="form-control" type="text" placeholder="add task" v-model="newTask" @keyup.enter="addTask()">
+                </div>
 
             </div>
 
