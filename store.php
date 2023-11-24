@@ -1,39 +1,49 @@
 <?php
-// Get newTask from POST
-$new_task = $_POST["newTask"];
+// Read Json
+$todolist_json = file_get_contents("./todolist.json");
 
-// Add completed status
-$new_task["complete"] = false;
+// Decode Json
+$todolist_decoded = json_decode($todolist_json, true);
 
-// Store in Response
-$response = [
-    "success" => true,
-];
+$case = $_POST["case"];
+switch ($case) {
 
-// Get tasks from Json file and add new task
+        // Add New Task
+    case "addTask":
+        // Get newTask from POST
+        $new_task = $_POST["newTask"];
+        if ($new_task) {
 
-if ($new_task) {
-    // Read Json
-    $todolist_json = file_get_contents("./todolist.json");
+            $response["success"] = true;
 
-    // Decode Json
-    $todolist_decoded = json_decode($todolist_json, true);
+            // Add completed status
+            $new_task["complete"] = false;
 
-    // Push newTask to decoded list
-    $todolist_decoded[] = $new_task;
+            // Push newTask to decoded list
+            $todolist_decoded[] = $new_task;
+        } else {
 
-    // Add Results to Response
-    $response["results"] = $todolist_decoded;
+            $response["success"] = false;
+            $response["error"] = "Invalid Task";
+        }
+        break;
 
-    // Encode Json
-    $todolist_json = json_encode($todolist_decoded);
-
-    // Save Json
-    file_put_contents("./todolist.json", $todolist_json);
-} else {
-    $response["success"] = false;
-    $response["error"] = "Invalid Task";
+        // Toggle Task Status
+    case "toggleTask":
+        $response["success"] = true;
+        $i = intval($_POST["taskIndex"]);
+        $todolist_decoded[$i]["complete"] =  !$todolist_decoded[$i]["complete"];
+        break;
 }
+
+// Add to Response
+$response["results"] = $todolist_decoded;
+
+// Encode Json
+$todolist_json = json_encode($todolist_decoded);
+
+// Save Json
+file_put_contents("./todolist.json", $todolist_json);
 
 // Send Response as Json
 header('Content-type: application/json');
