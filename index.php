@@ -23,7 +23,7 @@
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item p-3 d-flex justify-content-between" v-for="item in todolist">
-                        <span class="fw-medium">{{item}}</span>
+                        <span class="fw-medium">{{item.name}}</span>
                         <span class="opacity-50"><i class="fa-regular fa-circle-xmark"></i></span>
                     </li>
                 </ul>

@@ -15,10 +15,17 @@ createApp({
       });
     },
     addTask() {
-      if (!this.newTask) return;
+      if (!this.newTask) {
+        return;
+      }
 
-      console.log(this.newTask);
-      const data = { newTask: this.newTask };
+      const data = {
+        newTask: {
+          name: this.newTask,
+        },
+      };
+
+      console.log(data);
       axios
         .post("store.php", data, {
           headers: {
@@ -26,6 +33,7 @@ createApp({
           },
         })
         .then((res) => {
+          console.log(this.newTask);
           this.todolist = res.data.results;
         });
       this.newTask = "";
