@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <script src="https://kit.fontawesome.com/a095a4bfbe.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,11 +18,14 @@
             <div class="card w-50 mx-auto my-5 shadow">
 
                 <div class="card-header">
-                    <h1 class="display-6 fw-medium">{{title}}</h1>
+                    <h1 class="fs-3 fw-semibold text-uppercase">{{title}}</h1>
                 </div>
 
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item fw-medium" v-for="item in todolist">{{item}}</li>
+                    <li class="list-group-item p-3 d-flex justify-content-between" v-for="item in todolist">
+                        <span class="fw-medium">{{item}}</span>
+                        <span class="opacity-50"><i class="fa-regular fa-circle-xmark"></i></span>
+                    </li>
                 </ul>
 
             </div>
