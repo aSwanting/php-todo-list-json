@@ -24,7 +24,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item p-3 d-flex justify-content-between" v-for="(item, i) in todolist">
                         <span class="fw-medium" :class="{'text-decoration-line-through': item.complete}" @click="toggleComplete(i)">{{item.name}}</span>
-                        <span class="opacity-50"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <span class="opacity-50" @click="removeTask(i)"><i class="fa-regular fa-circle-xmark"></i></span>
                     </li>
                 </ul>
                 <div class="card-footer d-flex gap-3">

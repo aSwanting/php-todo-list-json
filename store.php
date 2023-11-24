@@ -34,6 +34,13 @@ switch ($case) {
         $i = intval($_POST["taskIndex"]);
         $todolist_decoded[$i]["complete"] =  !$todolist_decoded[$i]["complete"];
         break;
+
+        // Toggle Task Status
+    case "deleteTask":
+        $response["success"] = true;
+        $i = intval($_POST["taskIndex"]);
+        array_splice($todolist_decoded, $i, 1);
+        break;
 }
 
 // Add to Response
