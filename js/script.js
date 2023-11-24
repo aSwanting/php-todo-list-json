@@ -18,14 +18,11 @@ createApp({
       if (!this.newTask) {
         return;
       }
-
       const data = {
         newTask: {
           name: this.newTask,
         },
       };
-
-      console.log(data);
       axios
         .post("store.php", data, {
           headers: {
@@ -33,10 +30,12 @@ createApp({
           },
         })
         .then((res) => {
-          console.log(this.newTask);
           this.todolist = res.data.results;
         });
       this.newTask = "";
+    },
+    toggleComplete(i) {
+      this.todolist[i].complete = !this.todolist[i].complete;
     },
   },
   created() {

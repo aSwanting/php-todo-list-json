@@ -1,5 +1,5 @@
 [
   { "name": "HTML", "complete": false },
   { "name": "CSS", "complete": false },
-  { "name": "JavaScript", "complete": false }
+  { "name": "JavaScript", "complete": true }
 ]
