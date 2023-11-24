@@ -15,7 +15,14 @@ createApp({
       });
     },
     addTask() {
+      // if (!this.newTask) return;
       console.log(this.newTask);
+      const data = { newTask: this.newTask };
+      axios.post("store.php", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       this.newTask = "";
     },
   },
