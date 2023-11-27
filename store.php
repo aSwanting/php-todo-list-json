@@ -44,6 +44,7 @@ switch ($case) {
     case "toggleTask":
         $response["success"] = true;
         $i = intval($_POST["taskIndex"]);
+        $si = intval($_POST["subtaskIndex"]);
         $todolist_decoded[$i]["complete"] =  !$todolist_decoded[$i]["complete"];
         break;
 
@@ -52,6 +53,22 @@ switch ($case) {
         $response["success"] = true;
         $i = intval($_POST["taskIndex"]);
         array_splice($todolist_decoded, $i, 1);
+        break;
+
+        // Toggle SubTask Status
+    case "toggleSubTask":
+        $response["success"] = true;
+        $i = intval($_POST["taskIndex"]);
+        $si = intval($_POST["subtaskIndex"]);
+        $todolist_decoded[$i]["subtasks"][$si]["complete"] =  !$todolist_decoded[$i]["subtasks"][$si]["complete"];
+        break;
+
+        // Remove SubTask
+    case "deleteSubTask":
+        $response["success"] = true;
+        $i = intval($_POST["taskIndex"]);
+        $si = intval($_POST["subtaskIndex"]);
+        array_splice($todolist_decoded[$i]["subtasks"], $si, 1);
         break;
 }
 

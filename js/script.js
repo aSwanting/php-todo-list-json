@@ -103,6 +103,48 @@ createApp({
           this.todolist = res.data.results;
         });
     },
+
+    // SubTask Toggle Update
+    toggleComplete(i, si) {
+      const data = {
+        case: "toggleSubTask",
+        taskIndex: i,
+        subtaskIndex: si,
+      };
+
+      console.log(data);
+
+      axios
+        .post("store.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.todolist = res.data.results;
+        });
+    },
+
+    // Delete SubTask
+    removeTask(i, si) {
+      const data = {
+        case: "deleteSubTask",
+        taskIndex: i,
+        subtaskIndex: si,
+      };
+
+      console.log(data);
+
+      axios
+        .post("store.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.todolist = res.data.results;
+        });
+    },
   },
   created() {
     this.fetchData();

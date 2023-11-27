@@ -9,6 +9,13 @@
   z-index: 9999;
 }
 
+.todo-buttons.sub {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 9999;
+}
+
 .todo-buttons * {
   cursor: pointer;
   padding: 0 5px;
