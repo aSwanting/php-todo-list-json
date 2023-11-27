@@ -31,3 +31,13 @@
   color: green;
   opacity: 1;
 }
+
+.subtasks-todo {
+  font-size: 10px;
+  opacity: 0.6;
+  padding: 0 0.5em;
+}
+
+.subtasks .subtask-item:last-child {
+  margin-bottom: 15px;
+}

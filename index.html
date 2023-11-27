@@ -73,6 +73,7 @@
                   :data-bs-target="'#todo-' + index"
                 >
                   {{item.name}}
+                  <span class="subtasks-todo">{{subTasks(item)}}</span>
                 </button>
               </h2>
 
@@ -89,13 +90,9 @@
 
               <div :id="'todo-' + index" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                  <ul
-                    v
-                    class="list-group mb-3"
-                    v-show="todolist[index].subtasks"
-                  >
+                  <ul class="list-group subtasks">
                     <li
-                      class="list-group-item"
+                      class="list-group-item subtask-item"
                       :class="{'text-decoration-line-through': todolist[index].subtasks[subIndex].complete}"
                       v-for="(subItem, subIndex) in todolist[index].subtasks"
                     >

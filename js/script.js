@@ -3,7 +3,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      title: "PHP Todo List",
+      title: "Todo",
       todolist: "",
       newTask: "",
       newSubTask: [],
@@ -111,9 +111,6 @@ createApp({
         taskIndex: i,
         subtaskIndex: si,
       };
-
-      console.log(data);
-
       axios
         .post("store.php", data, {
           headers: {
@@ -132,9 +129,6 @@ createApp({
         taskIndex: i,
         subtaskIndex: si,
       };
-
-      console.log(data);
-
       axios
         .post("store.php", data, {
           headers: {
@@ -144,6 +138,23 @@ createApp({
         .then((res) => {
           this.todolist = res.data.results;
         });
+    },
+
+    // Print subtask count
+    subTasks(item) {
+      let substasksDone = 0;
+      if (item.subtasks) {
+        const substasksTodo = item.subtasks.length;
+        item.subtasks.forEach((element) => {
+          if (element.complete === true) {
+            substasksDone += 1;
+          }
+        });
+
+        if (substasksTodo) {
+          return `(${substasksDone} / ${substasksTodo})`;
+        }
+      }
     },
   },
   created() {

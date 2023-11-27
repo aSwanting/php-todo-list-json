@@ -2,15 +2,28 @@
   {
     "name": "HTML",
     "complete": false,
-    "subtasks": [{ "name": "index", "complete": false }]
+    "subtasks": [
+      { "name": "header", "complete": true },
+      { "name": "body", "complete": true },
+      { "name": "footer", "complete": true }
+    ]
   },
   {
     "name": "CSS",
     "complete": false,
     "subtasks": [
-      { "name": "reset rules", "complete": false },
-      { "name": "utility classes", "complete": false }
+      { "name": "reset rules", "complete": true },
+      { "name": "utility classes", "complete": true },
+      { "name": "general style", "complete": false }
     ]
   },
-  { "name": "JS", "complete": false }
+  {
+    "name": "JS",
+    "complete": false,
+    "subtasks": [
+      { "name": "functions", "complete": false },
+      { "name": "variables", "complete": false }
+    ]
+  },
+  { "name": "Logs", "complete": false }
 ]
