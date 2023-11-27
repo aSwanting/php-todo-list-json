@@ -18,13 +18,17 @@ createApp({
 
     // New Task Data Fetch
     addTask() {
-      if (!this.newTask) {
+      const newTask = this.newTask.trim();
+      this.newTask = "";
+
+      if (!newTask) {
         return;
       }
+
       const data = {
         case: "addTask",
         newTask: {
-          name: this.newTask,
+          name: newTask,
         },
       };
       axios
@@ -36,7 +40,6 @@ createApp({
         .then((res) => {
           this.todolist = res.data.results;
         });
-      this.newTask = "";
     },
 
     // Task Toggle Update

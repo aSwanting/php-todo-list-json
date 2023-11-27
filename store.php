@@ -10,19 +10,12 @@ switch ($case) {
 
         // Add New Task
     case "addTask":
-        // Get newTask from POST
         $new_task = $_POST["newTask"];
         if ($new_task) {
-
             $response["success"] = true;
-
-            // Add completed status
             $new_task["complete"] = false;
-
-            // Push newTask to decoded list
             $todolist_decoded[] = $new_task;
         } else {
-
             $response["success"] = false;
             $response["error"] = "Invalid Task";
         }
@@ -35,7 +28,7 @@ switch ($case) {
         $todolist_decoded[$i]["complete"] =  !$todolist_decoded[$i]["complete"];
         break;
 
-        // Toggle Task Status
+        // Remove Task
     case "deleteTask":
         $response["success"] = true;
         $i = intval($_POST["taskIndex"]);
