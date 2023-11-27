@@ -25,3 +25,9 @@
 .todo-buttons *:hover {
   opacity: 0.8;
 }
+
+.todo-buttons.complete *:first-child,
+.todo-buttons.sub.complete *:first-child {
+  color: green;
+  opacity: 1;
+}

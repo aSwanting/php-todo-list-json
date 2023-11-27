@@ -76,7 +76,7 @@
                 </button>
               </h2>
 
-              <div class="todo-buttons">
+              <div class="todo-buttons" :class="{complete:item.complete}">
                 <i
                   @click="toggleComplete(index)"
                   class="fa-regular fa-circle-check"
@@ -100,7 +100,10 @@
                       v-for="(subItem, subIndex) in todolist[index].subtasks"
                     >
                       {{ subItem.name }}
-                      <div class="todo-buttons sub">
+                      <div
+                        class="todo-buttons sub"
+                        :class="{complete:todolist[index].subtasks[subIndex].complete}"
+                      >
                         <i
                           @click="toggleSubComplete(index, subIndex)"
                           class="fa-regular fa-circle-check"
