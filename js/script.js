@@ -105,7 +105,7 @@ createApp({
     },
 
     // SubTask Toggle Update
-    toggleComplete(i, si) {
+    toggleSubComplete(i, si) {
       const data = {
         case: "toggleSubTask",
         taskIndex: i,
@@ -126,7 +126,7 @@ createApp({
     },
 
     // Delete SubTask
-    removeTask(i, si) {
+    removeSubTask(i, si) {
       const data = {
         case: "deleteSubTask",
         taskIndex: i,

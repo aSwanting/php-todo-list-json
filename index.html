@@ -79,7 +79,7 @@
               <div class="todo-buttons">
                 <i
                   @click="toggleComplete(index)"
-                  class="fa-solid fa-circle-plus"
+                  class="fa-regular fa-circle-check"
                 ></i>
                 <i
                   @click="removeTask(index)"
@@ -102,11 +102,11 @@
                       {{ subItem.name }}
                       <div class="todo-buttons sub">
                         <i
-                          @click="toggleComplete(index, subIndex)"
-                          class="fa-solid fa-circle-plus"
+                          @click="toggleSubComplete(index, subIndex)"
+                          class="fa-regular fa-circle-check"
                         ></i>
                         <i
-                          @click="removeTask(index, subIndex)"
+                          @click="removeSubTask(index, subIndex)"
                           class="fa-regular fa-circle-xmark"
                         ></i>
                       </div>

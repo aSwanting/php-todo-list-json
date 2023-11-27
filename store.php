@@ -44,7 +44,6 @@ switch ($case) {
     case "toggleTask":
         $response["success"] = true;
         $i = intval($_POST["taskIndex"]);
-        $si = intval($_POST["subtaskIndex"]);
         $todolist_decoded[$i]["complete"] =  !$todolist_decoded[$i]["complete"];
         break;
 
