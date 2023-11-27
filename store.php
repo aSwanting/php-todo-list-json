@@ -21,6 +21,25 @@ switch ($case) {
         }
         break;
 
+        // Add New SubTask
+    case "addSubTask":
+        $new_task = $_POST["newTask"];
+        if ($new_task) {
+            $response["success"] = true;
+
+            $newSubtask = [
+                "name" => $new_task,
+                "complete" => false
+            ];
+
+            $i = intval($_POST["taskIndex"]);
+            $todolist_decoded[$i]["subtasks"][] = $newSubtask;
+        } else {
+            $response["success"] = false;
+            $response["error"] = "Invalid Task";
+        }
+        break;
+
         // Toggle Task Status
     case "toggleTask":
         $response["success"] = true;

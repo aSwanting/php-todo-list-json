@@ -6,6 +6,7 @@ createApp({
       title: "PHP Todo List",
       todolist: "",
       newTask: "",
+      newSubTask: [],
     };
   },
   methods: {
@@ -30,6 +31,31 @@ createApp({
         newTask: {
           name: newTask,
         },
+      };
+      axios
+        .post("store.php", data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.todolist = res.data.results;
+        });
+    },
+
+    // New Sub Task
+    addSubTask(i) {
+      const newSubTask = this.newSubTask[i].trim();
+      this.newSubTask = [];
+
+      if (!newSubTask) {
+        return;
+      }
+
+      const data = {
+        case: "addSubTask",
+        taskIndex: i,
+        newTask: newSubTask,
       };
       axios
         .post("store.php", data, {
