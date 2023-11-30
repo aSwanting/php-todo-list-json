@@ -11,7 +11,7 @@ switch ($case) {
         // Add New Task
     case "addTask":
         $new_task = $_POST["newTask"];
-        if ($new_task) {
+        if (trim($new_task)) {
             $response["success"] = true;
             $new_task["complete"] = false;
             $todolist_decoded[] = $new_task;
@@ -24,7 +24,7 @@ switch ($case) {
         // Add New SubTask
     case "addSubTask":
         $new_task = $_POST["newTask"];
-        if ($new_task) {
+        if (trim($new_task)) {
             $response["success"] = true;
 
             $newSubtask = [
